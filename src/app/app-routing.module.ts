@@ -22,6 +22,10 @@ const routes: Routes = [
         loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule),
       },
       {
+        path: 'item',
+        loadChildren: () => import('./features/itemcomponent/itemcomponent.module').then(m => m.ItemcomponentModule),
+      },
+      {
         path: '**',
         component: NotFoundComponent,
       },
