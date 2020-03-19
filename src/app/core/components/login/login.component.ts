@@ -10,12 +10,18 @@ import { User } from '../../../shared/models/user'
 export class LoginComponent implements OnInit {
   user: User = new User()
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router    
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {    
+  }
 
   submitForm(): void {
     localStorage.setItem('currentuser', 'hola')
     this.router.navigate(['/admin'])
   }
+
+  
+
 }
