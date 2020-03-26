@@ -16,6 +16,7 @@ export const environment = {
 
   api: {
     budgets: 'http://localhost:8083',
+    itemComponent: '',
     storage: 'https://api.realplazalabs.com/v1/storage/uploadFile',
   },
 }
