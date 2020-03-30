@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpServiceService } from '../http-service.service';
 import { Observable } from 'rxjs';
 import { HttpParams } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class ItemComponentService {
     private httpService: HttpServiceService
   ) { }
 
-  private POST_ENDPOINT = 'https://localhost:44326';
+  private POST_ENDPOINT = environment.api.itemComponent;
 
   getItemComponent():Observable<any>{
     return this.httpService.get<any>(`${this.POST_ENDPOINT}/itemComponents/find-all`);

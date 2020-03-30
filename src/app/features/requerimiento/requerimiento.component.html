@@ -1,0 +1,54 @@
+<h2 style="color: #7300e0;">Reportar Caso</h2>
+<form nz-form [formGroup]="loginForm">
+    <div nz-row>
+        <div nz-col nzSpan="24">
+            <nz-form-item>
+                <nz-form-label nzFor="plantilla">Pantilla</nz-form-label>
+                <nz-form-control nzErrorTip="Ingrese la Plantilla">
+                    <input nz-input name="plantilla" type="text" id="plantilla" formControlName="plantilla" [nzAutocomplete]="auto"
+                        placeholder="Pantilla" nzSize="large" />
+                <nz-autocomplete #auto>
+                    <nz-auto-option [nzValue]="'ACTUALIZACIÓN CONTENIDO DIRECTORIO'">ACTUALIZACIÓN CONTENIDO DIRECTORIO</nz-auto-option>
+                    <nz-auto-option [nzValue]="'DESACTIVAR CONTENIDO DIRECTORIO 2'">DESACTIVAR CONTENIDO DIRECTORIO 2</nz-auto-option>
+                    <nz-auto-option [nzValue]="'ACTUALIZACIÓN CONTENIDO DIRECTORIO 3'">ACTUALIZACIÓN CONTENIDO DIRECTORIO 3</nz-auto-option>
+                </nz-autocomplete>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label nzFor="titulo">Titulo</nz-form-label>
+                <nz-form-control nzErrorTip="Ingrese el Titulo">
+                    <textarea nz-input name="titulo" id="titulo" formControlName="titulo" placeholder="Titulo" nzSize="large">
+                    </textarea>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label nzFor="descripcion">Descripción</nz-form-label>
+                <nz-form-control nzErrorTip="Ingrese la descripción">
+                    <input nz-input name="descripcion"  id="descripcion" formControlName="descripcion"
+                        placeholder="Descripción" nzSize="large" />
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label nzFor="choosefile">Archivos adjuntos</nz-form-label>
+                <nz-upload
+                nzType="drag"
+                [nzMultiple]="true"
+                [nzLimit]="3"
+                nzAction="https://jsonplaceholder.typicode.com/posts/"
+                (nzChange)="fileProgress($event)"
+              >
+                <p class="ant-upload-drag-icon">
+                  <i nz-icon nzType="inbox"></i>
+                </p>
+                <p class="ant-upload-text">Click or drag file to this area to upload</p>
+              </nz-upload>
+            </nz-form-item>
+            <nz-form-item>
+                <button nz-button nzType="primary" nzBlock (click)="create()" [nzSize]="'large'">Guardar</button>
+                <br>
+                <br>
+                <button nz-button nzType="primary" nzBlock  [nzSize]="'large'">Cancelar</button>
+            </nz-form-item>
+        </div>
+    </div>
+</form>

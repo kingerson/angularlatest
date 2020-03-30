@@ -30,6 +30,10 @@ const routes: Routes = [
         loadChildren: () => import('./features/itemcomponent/itemcomponent.module').then(m => m.ItemcomponentModule),
       },
       {
+        path: 'requerimiento',
+        loadChildren: () => import('./features/requerimiento/requerimiento.module').then(m => m.RequerimientoModule),
+      },
+      {
         path: '**',
         component: NotFoundComponent,
       },

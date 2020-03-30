@@ -7,17 +7,18 @@ export const environment = {
   hmr: false,
 
   auth: {
-    url: 'https://api.realplazalabs.com/v1/identity',
-    client_id: 'realplaza.softwareintegrador',
-    client_secret: '3CD98E07-77EF-49ED-8870-7401B6A5585A',
+    url: 'https://login.microsoftonline.com/realplaza.onmicrosoft.com/oauth2/token',
+    client_id: 'b8b8baea-4a87-4458-ae82-ce9898a0ae15',
+    client_secret: 'UM9F60G/5=:.iM]3t67[N3d_5JbyMq:k',
     scope: 'ms-rp-budgets ms-rp-filestorage ms-rp-workflowmanager ms-rp-nps offline_access',
     grand_type: 'password',
+    resource: 'https://graph.microsoft.com'
   },
 
   api: {
     budgets: 'http://localhost:8083',
     itemComponent: '',
-    storage: 'https://api.realplazalabs.com/v1/storage/uploadFile',
+    storage: 'https://localhost:44326',
   },
 }
 

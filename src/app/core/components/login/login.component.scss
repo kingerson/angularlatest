@@ -1,9 +1,18 @@
+body {
+  overflow-x:hidden;  
+}
+
 .realplaza-login {
+  background: #7300e0;
   display: flex;
   width: 100%;
   height: 100%;
   .realplaza-box-login {
-    width: 40%;
+    overflow-y: hidden;
+    border-radius: 200px 0px 0px 200px;
+    animation: 1.0s ease-out 0s 1 slideInFromRight;
+    background: #ffffff;
+    width: 50%;
     display: flex;
     align-items: center;
     .realplaza-wrap-login {
@@ -16,13 +25,18 @@
             width: 100%;
             max-width: 125px;
           }
+          h1 {
+            color: #7300e0;
+            font-weight: bold;
+            font-size: 36px;
+          }
         }
         .realplaza-welcome-login {
           padding-top: 60px;
           h1 {
             color: #7300e0;
             font-weight: bold;
-            text-transform: uppercase;
+            // text-transform: uppercase;
           }
           h3 {
             font-family: 'Circular Pro Book', sans-serif;
@@ -33,13 +47,17 @@
         .realplaza-body-login {
           padding-top: 20px;
           .realplaza-control-login {
+            border-bottom: 2px solid #7300e0 !important;
+            display: inline-flex;
             position: relative;
+            width: 100%;
+            margin-bottom: 35px;
             &:focus-within::before {
               content: '';
               background: #7300e0;
               height: 100%;
               position: absolute;
-              width: 2px;
+              width: 3px;
               left: 0;
               top: 0;
             }
@@ -62,19 +80,21 @@
               }
             }
             .realplaza-control-input {
-              border: 1px solid #dcd0e0;
-              outline: none;
+              // border: 1px solid #dcd0e0;
+              outline: 0;
               display: block;
               width: 100%;
               padding: 15px 15px 15px 40px;
               &.username {
                 border-top-left-radius: 3px;
                 border-top-right-radius: 3px;
+                border-radius: 15px;
               }
               &.password {
                 margin-top: -1px;
                 border-bottom-left-radius: 3px;
                 border-bottom-right-radius: 3px;
+                border-radius: 15px;
               }
               &:focus + .realplaza-control-label {
                 top: 6px;
@@ -87,10 +107,10 @@
             }
             i {
               position: absolute;
-              top: 17px;
+              top: 10px;
               left: 15px;
               font-size: 15px;
-              color: #d9d9d9;
+              color: #7300e0;
             }
           }
           .realplaza-forgot-login {
@@ -104,14 +124,25 @@
           .realplaza-access-login {
             padding-top: 20px;
             .realplaza-button-login {
-              width: 100%;
-              background: #7300e0;
-              color: #fff;
+              border: 2px solid #7300e0;
+              -webkit-transition: all .4s ease;
+              transition: all .4s ease;
+              width: 200px;
+              background:-webkit-gradient(linear,right top,left top,color-stop(50%,#fff),color-stop(50%,#7300e0));
+              background:linear-gradient(270deg,#fff 50%,#7300e0 0);
+              background-size:201% 100%;
+              background-position:100% 100%;
+              color: #7300e0;
               padding: 15px;
               text-transform: uppercase;
-              border: none;
-              cursor: pointer;
+              // cursor: pointer;
               font-size: 14px;
+            }
+            .realplaza-button-login:hover{
+              background-position:0 100%;color:#fff;
+            }
+            button:focus{
+              outline:0
             }
           }
         }
@@ -119,7 +150,12 @@
     }
   }
   .realplaza-box-carousel {
-    width: 60%;
+    width: 50%;
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     [nz-carousel-content] {
       height: 100%;
       img {
@@ -128,10 +164,69 @@
       }
     }
   }
+  .realplaza-box-carousel-p{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #fff;
+    font-size: 11px;
+    padding-bottom: 15px;
+
+  }
+  button{
+    border-radius: 16px;
+  }
+
+  .input-login{
+    border: none;
+    height: 33px;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    outline: 0;
+    letter-spacing: 1.5px;
+  }
+
+  .realplaza-tittle{
+    h1{
+      padding-top: 20px;
+      color: #fff;
+      font-weight: bold;
+      animation: 1.0s ease-out 0s 1 opacity;
+      font-size: 50px;
+    }
+    img{
+      width: 280px;
+      animation: 1.0s ease-out 0s 1 opacity;
+      border-style: none;
+    }
+  }
 }
 
 @mixin tablet {
   @media (max-width: 768px) {
     @content;
+  }
+}
+
+@keyframes slideInFromRight {
+	0% {
+		transform: translateX(100%);
+	}
+
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+@media screen and (max-width: 768px) {
+  .realplaza-login .realplaza-box-login {
+    width: 100% !important;
+    border-radius: 0px;
+  }
+
+  .realplaza-box-carousel {
+    display: none !important;
   }
 }
